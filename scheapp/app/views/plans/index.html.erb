@@ -1,0 +1,41 @@
+<h3>ユーザー情報一覧</h3>
+
+<% if flash[:notice] %>
+ <p class= "notice"><%= flash[:notice] %></p>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th class="tag_button">id</th>
+      <th class="tag">タイトル</th>
+      <th class="tag">開始日</th>
+      <th class="tag">終了日</th>
+      <th class="tag_button">終日</th>
+      <th class="tag_de">詳細</th>
+      <th class="tag">更新日</th>
+      <th class="tag_button">確認</th>
+      <th class="tag_button">編集</th>
+      <th class="tag_button">削除</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @plans.each do |plan| %>
+   <tr>
+    <td class="content_button"><%= plan.id %></td>
+    <td class="content"><%= plan.title %></td>
+    <td class="content"><%= plan.startday %></td>
+    <td class="content"><%= plan.finday %></td>
+    <td class="content_button"><%= plan.allday %></td>
+    <td class="content_de"><%= plan.detail %></td>
+    <td class="content"><%= plan.updated_at.to_s(:datetime_jp) %></td>
+    <td class="content_button"><%= link_to"参照", plan_path(plan) %></td>
+    <td class="content_button"><%= link_to"編集", edit_plan_path(plan) %></td>
+    <td class="content_button"><%= link_to "削除", plan_path(plan), method: :delete, data: { confirm: "本当に削除しますか？" } %>
+    </td>
+    </tr>
+  <% end %>
+ </tbody>
+</table>
+
+<p><%= link_to "スケジュール新規登録", :new_plan %></p>

@@ -1,0 +1,11 @@
+   ja:
+      activerecord:
+        models:
+          plan: プラン
+        attributes:
+          plan:
+            title: タイトル
+            startday: 開始日
+            finday: 終了日
+            allday: 終日
+            detail: 詳細

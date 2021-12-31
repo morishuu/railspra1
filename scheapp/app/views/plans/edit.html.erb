@@ -1,0 +1,38 @@
+<h1>スケジュール編集</h1>
+ 
+<%= form_with model: @plan do |f| %>
+<table>
+ <tr>
+  <th class="label"><%= f.label :title, 'タイトル' %></th>
+  <td class="field"><%= f.text_field :title %></td>
+ </tr>
+
+ <tr>
+  <th class="label"><%= f.label :startday, '開始日' %></th>
+  <td class="field"><%= f.date_field :startday, value: Time.now.strftime("%Y-%m-%d") %></td>
+ </tr>
+
+ <tr>
+  <th class="label"><%= f.label :finday, '終了日' %></th>
+  <td class="field"><%= f.date_field :finday, value: Time.now.strftime("%Y-%m-%d")%></td>
+ </tr>
+
+ <tr>
+  <th class="label"><%= f.label :allday, '終日' %></th>
+  <td class="field"><%= f.check_box :allday,{}, '◯', '×' %>
+  <p>終日の場合はチェックを入れます</p></td>
+ </tr>
+
+ <tr>
+  <th class="label_de"><%= f.label :detail, '詳細' %></th>
+  <td class="field_de"><%= f.text_area :detail, size:"40x5" %></td>
+ </tr>
+</table>
+
+<div>
+ <ul>
+  <li><%=f.submit "編集を完了する" %></li>
+  <li><%= link_to "一覧へ戻る", :plans %></li>
+ </ul>
+</div>
+<% end %>

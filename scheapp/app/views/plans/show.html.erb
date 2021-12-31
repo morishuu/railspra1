@@ -1,0 +1,36 @@
+<h3>スケジュール詳細</h3>
+
+<table>
+ <tr>
+  <th class="label">タイトル</th>
+  <td class="field"><%= @plan.title %></td>
+ </tr>
+
+ <tr>
+  <th class="label">開始日</th>
+  <td class="field"><%= @plan.startday %></td>
+ </tr>
+
+ <tr>
+
+ <th class="label">終了日</th>
+ <td class="field"><%= @plan.finday %></td>
+</tr>
+
+<tr>
+  <th class="label">終日</th>
+  <td class="field"><%= @plan.allday %></td>
+ </tr>
+
+ <tr>
+  <th class="label">詳細</th>
+  <td class="field"><%= @plan.detail %></td>
+ </tr>
+</table>
+
+<div>
+ <ul>
+  <li><%= link_to "編集する" , edit_plan_path(@plan) %></li>
+  <li><%= link_to "一覧へ戻る", :plans %></li>
+ </ul>
+</div>
